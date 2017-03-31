@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <style>
+        body,
+        div,
+        ul,
+        li,
+        img {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #6D84B4;
+        }
+
+        .box {
+            width: 1180px;
+            height: 236px;
+            margin: 40px 0 0 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        ul {
+            width: 1200px;
+            height: 236px;
+            position: relative;
+            z-index: 1;
+            display: block;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+            position: relative;
+            margin-right: 20px;
+        }
+
+        img {
+            width: 180px;
+            height: 236px;
+        }
+
+        .prev, .next {
+            width: 30px;
+            height: 50px;
+            background: url(img/icon.png) no-repeat;
+            background: url(img/icon_ie6.png) no-repeat \9;
+            opacity: 7;
+            margin-top: -12%;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .prev:hover, .next:hover {
+            opacity: .9;
+        }
+
+        .prev {
+            background-position: 0 -60px;
+            left: 4px;
+        }
+
+        .next {
+            background-position: 0 0;
+            right: 4px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><img src="img/bg3.1.jpg" alt=""></li>
+        <li><img src="img/gf.jpg" alt=""></li>
+        <li><img src="img/myg.jpg" alt=""></li>
+        <li><img src="img/hhy.jpg" alt=""></li>
+        <li><img src="img/jsjx2.jpg" alt=""></li>
+        <li><img src="img/kbgs1.jpg" alt=""></li>
+    </ul>
+    <div class="prev"></div>
+    <div class="next"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        var ul = $("ul"),
+            lis = $("li"),
+            prev = $(".prev"),
+            liF = lis.eq(0),
+            liL = lis.eq(5),
+            next = $(".next");
+        prev.click(function () {
+            if (liF) {
+                ul.append($('li:nth-of-type(1)'));
+            }
+        });
+        next.click(function () {
+            if (liL) {
+                ul.prepend($('li:nth-of-type(6)'));
+            }
+        })
+    });
+
+
+</script>
+</body>
+</html>
